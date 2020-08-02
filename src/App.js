@@ -1,16 +1,12 @@
-import './styles/main.scss'
 import React from 'react'
-import { Route, Switch, BrowserRouter as Router } from 'react-router-dom'
-import layoutHome from '@pages/layoutHome.jsx'
+import './styles/main.scss'
+// import {Switch, BrowserRouter as Route } from 'react-router-dom'
+import LayoutHome from '@pages/LayoutHome'
 
 
-function App() {
+const App = () => {
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/" render={(props) => <layoutHome {...props} />} />
-      </Switch>
-    </Router>
+    <LayoutHome />
   )
 }
 
