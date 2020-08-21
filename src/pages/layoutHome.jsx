@@ -8,15 +8,14 @@ const { Header, Content, Footer } = Layout;
 
 const LayoutHome = () => {
   const [pokemonData, setPokemonData] = useState({});
-  console.log(pokemonData)
   const { Meta } = Card;
   const [filter, setFilter] = useState("");
-  const handleSearchChange = (e) => {
-    setFilter(e.target.value);
-  };
+  // const handleSearchChange = (e) => {
+  //   setFilter(e.target.value);
+  // };
 
   useEffect(() => {
-    async function hola(){
+    async function serviceApi(){
       let response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=150`);
       if (response.ok) { // if HTTP-status is 200-299
         // get the response body (the method explained below)
@@ -35,7 +34,7 @@ const LayoutHome = () => {
         setPokemonData(newPokemonData);
       } 
     }
-    hola();
+    serviceApi();
     
   }, []);
 
