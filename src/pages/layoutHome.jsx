@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import {Col, Row,Layout, Menu, Card } from 'antd';
-import CardPoke from '@commons/Card'
 import { toFirstCharUppercase } from "../constante";
 const { Header, Content, Footer } = Layout;
 
 
 
-const LayoutHome = () => {
+const LayoutHome = (props) => {
+  const { history } = props;
   const [pokemonData, setPokemonData] = useState({});
   const { Meta } = Card;
   const [filter, setFilter] = useState("");
@@ -17,8 +17,7 @@ const LayoutHome = () => {
   useEffect(() => {
     async function serviceApi(){
       let response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=150`);
-      if (response.ok) { // if HTTP-status is 200-299
-        // get the response body (the method explained below)
+      if (response.ok) {
         let data = await response.json()
         const { results } = data
         const newPokemonData = {};
@@ -43,7 +42,7 @@ const LayoutHome = () => {
 
     return (
       <Col span={6} key={pokemonId}  style={{padding: '50px'}}>
-        <Card
+        <Card onClick={() => history.push(`/${id}`)}
           style={{padding: '40px'}}
           hoverable
           cover={<img alt="example" src={`${sprite}`} />}
@@ -73,7 +72,7 @@ const LayoutHome = () => {
           </div>
           
           </Content>
-          <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+          <Footer style={{ textAlign: 'center' }}>PokeRoyfrit</Footer>
       </Layout>   
       </>
     )
