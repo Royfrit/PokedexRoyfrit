@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import {Col, Row,Layout, Menu, Card } from 'antd';
+import {Col, Row, Card } from 'antd';
 import { toFirstCharUppercase } from "../constante";
-const { Header, Content, Footer } = Layout;
+
 
 
 
@@ -54,26 +54,14 @@ const LayoutHome = (props) => {
   }; 
     return (
       <>
-      <Layout className="layout">
-        <Header>
-        <div className="logo" />
-        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
-        </Menu>
-        </Header>
-        <Content style={{ padding: '70px 70px', height: '100%'}}>
-            <div className="site-card-wrapper">
-            <Row gutter={16}>
-                {Object.keys(pokemonData).map(
-                  (pokemonId) =>
-                    pokemonData[pokemonId].name.includes(filter) &&
-                    getPokemonCard(pokemonId)
-                )}
-            </Row>
-          </div>
-          
-          </Content>
-          <Footer style={{ textAlign: 'center' }}>PokeRoyfrit</Footer>
-      </Layout>   
+        <Row gutter={16} style={{margin: 0}}>
+            {Object.keys(pokemonData).map(
+              (pokemonId) =>
+                pokemonData[pokemonId].name.includes(filter) &&
+                getPokemonCard(pokemonId)
+            )}
+        </Row>
+        
       </>
     )
 }

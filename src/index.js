@@ -4,12 +4,21 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { Router } from "react-router-dom";
 import { createBrowserHistory } from "history";
+import {Col, Row,Layout, Menu, Card } from 'antd';
+const { Header, Content, Footer } = Layout;
 
 const history = createBrowserHistory();
 ReactDOM.render(
   <React.StrictMode>
     <Router history={history}>
-      <App />
+    <Layout className="layout">
+      <Header>
+      <div className="logo" />
+      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}/>
+      </Header>
+        <App />
+        <Footer style={{ textAlign: 'center' }}>PokeRoyfrit</Footer>
+    </Layout>   
     </Router>
   </React.StrictMode>,
   document.getElementById("root")
