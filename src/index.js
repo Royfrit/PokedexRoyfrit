@@ -4,8 +4,8 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { Router } from "react-router-dom";
 import { createBrowserHistory } from "history";
-import {Col, Row,Layout, Menu, Card } from 'antd';
-const { Header, Content, Footer } = Layout;
+import {Layout, Menu } from 'antd';
+const { Header, Footer } = Layout;
 
 const history = createBrowserHistory();
 ReactDOM.render(
@@ -17,7 +17,7 @@ ReactDOM.render(
       <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}/>
       </Header>
         <App />
-        <Footer style={{ textAlign: 'center' }}>PokeRoyfrit</Footer>
+        <Footer style={{ textAlign: 'center', background: '#2f3640'}}>PokeRoyfrit</Footer>
     </Layout>   
     </Router>
   </React.StrictMode>,

@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import {Col, Row, Card } from 'antd';
 import { toFirstCharUppercase } from "../constante";
-
-
-
+import {serviceApi} from "../services/sevicePokemon"
 
 const LayoutHome = (props) => {
   const { history } = props;
+ 
   const [pokemonData, setPokemonData] = useState({});
   const { Meta } = Card;
   const [filter, setFilter] = useState("");
@@ -14,27 +13,12 @@ const LayoutHome = (props) => {
   //   setFilter(e.target.value);
   // };
 
+  async function getPoke() {
+    let res = await serviceApi();
+    setPokemonData(res);
+  }
   useEffect(() => {
-    async function serviceApi(){
-      let response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=150`);
-      if (response.ok) {
-        let data = await response.json()
-        const { results } = data
-        const newPokemonData = {};
-        results.forEach((pokemon, index) => {
-          newPokemonData[index + 1] = {
-            id: index + 1,
-            name: pokemon.name,
-            sprite: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
-              index + 1
-            }.png`,
-          };
-        });
-        setPokemonData(newPokemonData);
-      } 
-    }
-    serviceApi();
-    
+    getPoke()    
   }, []);
 
   const getPokemonCard = (pokemonId) => {
