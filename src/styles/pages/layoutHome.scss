@@ -1,0 +1,22 @@
+@import '../settings/colors';
+
+.CardPokemon {
+    padding: 45px 45px 45px 0 !important;
+    &__CardImg {
+        padding: 40px;
+    }
+    &__CardTitle {
+        text-align: center;
+        font-size: 18px;
+    }
+}
+.Search {
+    padding: 0 0 0 46px;
+    background: $colorFund;
+}
+
+@media (max-width: 768px) {
+    .CardPokemon{
+        margin: auto;
+    }
+}

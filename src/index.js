@@ -4,12 +4,22 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { Router } from "react-router-dom";
 import { createBrowserHistory } from "history";
+import {Layout, Menu } from 'antd';
+import '../src/styles/pages/index.scss'
+const { Header, Footer } = Layout;
+
 
 const history = createBrowserHistory();
 ReactDOM.render(
   <React.StrictMode>
     <Router history={history}>
-      <App />
+    <Layout className="layout">
+      <Header className="layout__header">
+        <Menu  mode="horizontal" defaultSelectedKeys={['2']}/>
+      </Header>
+        <App />
+        <Footer className="layout__footer">Creado por Royfrit</Footer>
+    </Layout>   
     </Router>
   </React.StrictMode>,
   document.getElementById("root")
