@@ -18,7 +18,7 @@ const Pokemon = (props) => {
 
       return (
         <>
-          {pokemon !== undefined && pokemon && <GeneratePokemonJSX pokemon={pokemon}/>}
+          {pokemon !== undefined && pokemon && <GeneratePokemonJSX history={props} pokemon={pokemon}/>}
         </>
       );
 }

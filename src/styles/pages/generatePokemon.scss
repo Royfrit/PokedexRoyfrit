@@ -1,0 +1,46 @@
+@import '../settings/colors';
+
+.PokeDescription{
+    background: $colorFund;
+
+    &__specs {
+        padding: 0 45px 60px 45px;
+        th {
+            font-size:17px
+        }
+        td {
+            font-size: 17px
+        }
+    }
+    &__Img {
+        text-align: center;
+        padding: 10px;
+    }
+    &__ImgDimension {
+        width: 370px;
+    }
+    &__DivButton {
+        text-align: end;
+        padding: 0 50px 0 0;
+    }
+    &__Button {
+        background: #e63946;
+        border: #e63946;
+    }
+    @media (max-width: 768px) {
+        &__ImgDimension {
+            width: 250px;
+        }
+        &__specs {
+            padding: 0 45px 60px 45px;
+            th {
+                font-size:14px
+            }
+            td {
+                font-size: 14px
+            }
+        }
+    }
+
+}
+

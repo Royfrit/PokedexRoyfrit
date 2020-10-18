@@ -1,0 +1,16 @@
+@import '../settings/colors';
+
+.layout {
+    &__header {
+        background: $colorNav;
+    }
+    .ant-row {
+        background: $colorFund;
+    }
+    &__footer {
+        background: $colorFooter;
+        text-align: center; 
+        color: #fff;
+        font-size: 17px;
+    }
+}
