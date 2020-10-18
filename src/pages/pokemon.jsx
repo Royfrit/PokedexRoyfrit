@@ -1,40 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { toFirstCharUppercase } from "../constante";
+import {serviceDetail} from '../services/sevicePokemon'
+import GeneratePokemonJSX from "../components/generatePokemon";
 
 const Pokemon = (props) => {
-    const { match, history } = props;
+    const { match} = props;
     const { params } = match;
     const { pokemonId } = params;
-    console.log(pokemonId);
     const [pokemon, setPokemon] = useState(undefined);
-    console.log(pokemon);
-
+    async function serviceImg() {
+      let data = await serviceDetail(pokemonId)
+      setPokemon(data);
+    }
     useEffect(() => {
-        async function serviceImg() {
-            let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}/`);
-            let data = await response.json()
-            console.log(data);
-            setPokemon(data);
-        }
         serviceImg()
       }, [pokemonId]);
 
-      const generatePokemonJSX = (pokemon) => {
-        const { name, id, species, height, weight, types, sprites } = pokemon;
-        const fullImageUrl = `https://pokeres.bastionbot.org/images/pokemon/${id}.png`;
-        const { front_default } = sprites;
-        console.log(front_default)
-        return (
-          <>
-           <div> {`${id}.`} {toFirstCharUppercase(name)} <img src={fullImageUrl}></img></div>
-          </>
-        );
-      };
 
       return (
         <>
-          {pokemon !== undefined && pokemon && generatePokemonJSX(pokemon)}
-    
+          {pokemon !== undefined && pokemon && <GeneratePokemonJSX history={props} pokemon={pokemon}/>}
         </>
       );
 }
