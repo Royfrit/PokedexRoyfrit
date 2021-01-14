@@ -18,7 +18,7 @@ ReactDOM.render(
         <Menu  mode="horizontal" defaultSelectedKeys={['2']}/>
       </Header>
         <App />
-        <Footer className="layout__footer">Creado por Royfrit</Footer>
+        <Footer className="layout__footer">Creado por Liset Trocel</Footer>
     </Layout>   
     </Router>
   </React.StrictMode>,
